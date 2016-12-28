@@ -101,6 +101,12 @@ alias syncdb='JOBS=4 rake db:clear db:sync'
 alias lsaws-s='cd ~/Code/chef-repo/ && rake aws:instances && cd -'
 alias lsaws-p='cd ~/Code/chef-repo/ && ENVIRONMENT=production rake aws:instances  && cd -'
 alias gprunelocal='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
+alias mux='tmuxinator'
+alias rspecnof='rspec --exclude-pattern "spec/features{,/**}/*_spec.rb" -f d'
+alias rspeconf='rspec --pattern "spec/features{,/**}/*_spec.rb" -f d'
+repl() { perl -pi -w -e "s/$1/$2/g;" * }
+replr() { perl -p -i -e "s/$1/$2/g" `grep -ril $1 *` }
 
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 source /Users/Allen/.iterm2_shell_integration.zsh
+
