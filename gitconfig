@@ -44,3 +44,5 @@
 [user]
 	email = 0allen.hsu@gmail.com
 	name = Allen Hsu
+[rebase]
+	autosquash = true
