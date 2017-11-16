@@ -28,8 +28,8 @@ if [[ "$OSTYPE" == linux* ]]; then
   export TERM="xterm-256color"
 fi
 
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 
 #
@@ -91,3 +91,9 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+if [ $ITERM_SESSION_ID ]; then
+  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+fi
+
+zstyle ':completion:*:*:git:*' user-commands fixup:'Create a fixup commit'
