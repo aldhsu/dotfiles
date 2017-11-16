@@ -7,13 +7,13 @@
 " -----------------------------
 " Color
 " -----------------------------
-set background=dark
-colorscheme base16-tomorrow
+" set background=dark
+" colorscheme base16-tomorrow
 
 " Force 256 color mode if available
-if $TERM =~ '-256color'
-  set t_Co=256
-endif
+" if $TERM =~ '-256color'
+"   set t_Co=256
+" endif
 
 " -----------------------------
 " General Settings
@@ -134,4 +134,4 @@ set t_vb=
 " -----------------------------
 au FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
 au FileType go setlocal noexpandtab nolist
-
+au FileType eruby setlocal shiftwidth=2
