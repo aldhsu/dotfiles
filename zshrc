@@ -5,6 +5,17 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Source ZPlug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+# OpenSSL
+export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
+export OPENSSL_LIB_DIR=`brew --prefix openssl`/lib
+
+# Plugins
+zplug "lukechilds/zsh-nvm"
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -25,88 +36,87 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 #
 
 #functions
-startcity()
-{
-    osascript &>/dev/null <<EOF
-    tell application "iTerm 2"
-        tell current window
-            tell current tab
-                tell current session
-                    write text "mux start city-data"
-                end tell
-            end tell
-
-            set newTab to (create tab with default profile)
-            tell current tab
-                tell current session
-                    write text "mux start city-web"
-                end tell
-            end tell
-
-            set newTab to (create tab with default profile)
-            tell current tab
-                tell current session
-                    write text "mux start bouncer"
-                end tell
-            end tell
-        end tell
-    end tell
-EOF
-}
-
-startintegrated()
-{
-    osascript &>/dev/null <<EOF
-    tell application "iTerm 2"
-        tell current window
-            tell current tab
-                tell current session
-                    write text "mux start integrated-data"
-                end tell
-            end tell
-
-            set newTab to (create tab with default profile)
-            tell current tab
-                tell current session
-                    write text "mux start integrated-web"
-                end tell
-            end tell
-        end tell
-    end tell
-EOF
-}
+# startcity()
+# {
+#     osascript &>/dev/null <<EOF
+#     tell application "iTerm 2"
+#         tell current window
+#             tell current tab
+#                 tell current session
+#                     write text "mux start city-data"
+#                 end tell
+#             end tell
+#
+#             set newTab to (create tab with default profile)
+#             tell current tab
+#                 tell current session
+#                     write text "mux start city-web"
+#                 end tell
+#             end tell
+#
+#             set newTab to (create tab with default profile)
+#             tell current tab
+#                 tell current session
+#                     write text "mux start bouncer"
+#                 end tell
+#             end tell
+#         end tell
+#     end tell
+# EOF
+# }
+#
+# startintegrated()
+# {
+#     osascript &>/dev/null <<EOF
+#     tell application "iTerm 2"
+#         tell current window
+#             tell current tab
+#                 tell current session
+#                     write text "mux start integrated-data"
+#                 end tell
+#             end tell
+#
+#             set newTab to (create tab with default profile)
+#             tell current tab
+#                 tell current session
+#                     write text "mux start integrated-web"
+#                 end tell
+#             end tell
+#         end tell
+#     end tell
+# EOF
+# }
 
 # Aliases
 
-unalias gb
+# unalias gb
 
 alias a='tmux attach -t'
 alias g='git'
-alias v='nvim'
-alias n='nvim'
+alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias t='tmux'
 alias z='zeus'
 alias s='spring'
 alias be='bundle exec'
 alias psql.server='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
-alias gt='go test -v -cover ./...'
-alias gru='git remote update'
+alias gpnv='SKIP_HOOK_TESTS=1 git push'
 alias tk='tmux kill-session -t'
-alias rt='rubocop -R -a && rspec spec'
-alias et='ember test'
 alias kpg='rm /usr/local/var/postgres/postmaster.pid'
-alias rdb='rake db:migrate && rake db:test:prepare && rake db:seed RAILS_ENV=test'
+alias rdb='rake db:migrate && rake db:seed; bin/pspec setup'
+alias resetdb= 'rake db:reset db:migrate db:dummies:load'
 alias emberupdate='bower cache clean && npm cache clean && rm -rf bower_components node_modules dist tmp && bower install && npm install'
-alias syncdb='JOBS=4 rake db:clear db:sync'
 alias lsaws-s='cd ~/Code/chef-repo/ && rake aws:instances && cd -'
 alias lsaws-p='cd ~/Code/chef-repo/ && ENVIRONMENT=production rake aws:instances  && cd -'
 alias gprunelocal='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
 alias mux='tmuxinator'
-alias rspecnof='rspec --exclude-pattern "spec/features{,/**}/*_spec.rb" -f d'
-alias rspeconf='rspec --pattern "spec/features{,/**}/*_spec.rb" -f d'
+alias an_emu="cd ~/Library/Android/sdk/tools && ANDROID_SDK_ROOT=~/Library/Android/sdk emulator @NexusGooglePlay"
 repl() { perl -pi -w -e "s/$1/$2/g;" * }
 replr() { perl -p -i -e "s/$1/$2/g" `grep -ril $1 *` }
+killport() {  kill $( lsof -i:$1 -t ) }
 
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
-source /Users/Allen/.iterm2_shell_integration.zsh
+source /Users/allen.hsu/.iterm2_shell_integration.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/openssl/bin:$PATH"
