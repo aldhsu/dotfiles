@@ -14,7 +14,7 @@
   email = allen.hsu@kinesis.org
 [core]
   legacyheaders = false
-  excludesfile = ~/.gitexclude
+	excludesfile = /Users/allen.hsu/.gitexclude
   whitespace = trailing-space,space-before-tab
   quotepath = false
   autocrlf = false
@@ -32,10 +32,10 @@
 [rerere]
   enabled = true
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/bcomp $LOCAL $REMOTE $BASE $MERGED
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean %f
@@ -46,3 +46,5 @@
 	name = Allen Hsu
 [rebase]
 	autosquash = true
+[commit]
+	template = /Users/allen.hsu/.stCommitMsg
