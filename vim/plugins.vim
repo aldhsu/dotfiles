@@ -22,13 +22,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0                                 " ag is fast enough that CtrlP doesn't need to cache
 endif
 
-" Pymode
-let g:pymode_folding = 0
-let g:pymode_run = 0
-let g:pymode_lint_cwindow = 0
-let g:pymode_rope = 0
-let g:pymode_lint = 0
-
 " vim-rails
 
 " Set ctags command so that tags are supported by YouCompleteMe
@@ -47,26 +40,12 @@ if !exists(":Rails!")
   au BufNewFile,BufRead *_spec.rb call SyntaxForRspec()
 endif
 
-" rust.vim
-let g:rustfmt_autosave = 1
-
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline_theme='base16'
-
-" vim-go
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-" yajs
-let g:vim_json_syntax_conceal = 0                           " Don't hide quotes in JSON.
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag -g ""'                         " Use ag to obey ignore files
@@ -81,8 +60,4 @@ let g:fzf_action = {
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 " vim-test
-let test#python#runner = 'tox'
 let test#strategy = 'neovim'
-
-" neomake
-autocmd! BufWritePost * Neomake
