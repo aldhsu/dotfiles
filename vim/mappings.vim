@@ -28,6 +28,9 @@ inoremap kj <ESC>
 " Use v to toggle visual mode.
 vnoremap v <esc>
 
+" In visual mode // searches for highlighted text
+vnoremap // y/<C-R>"<CR>
+
 if has('nvim')
   tnoremap <Leader>e <C-\><C-n>
 end
@@ -37,8 +40,15 @@ if !exists(':Ag')
   nnoremap <silent> <leader>as :AgFromSearch<CR>
 end
 
+function! RunNearestTestWithGUIChrome()
+    let oldHeadless = $HEADLESS
+    let $HEADLESS = 'false'
+    TestNearest
+    let $HEADLESS = oldHeadless
+endfunction
+
 if !exists(':TestFile')
-  nnoremap <silent> <leader>R :w<CR> :TestNearest<CR>
+  nnoremap <silent> <leader>R :w<CR> :call RunNearestTestWithGUIChrome()<CR>
   nnoremap <silent> <leader>r :w<CR> :TestFile<CR>
   nnoremap <silent> <leader>a :w<CR> :TestSuite<CR>
   nnoremap <silent> <leader>l :w<CR> :TestLast<CR>
@@ -50,3 +60,4 @@ if !exists(':Rename!')
 end
 
 nnoremap <leader>t :Files<CR>
+
