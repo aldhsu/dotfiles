@@ -31,53 +31,43 @@ set spelllang=en_au                          " Set spell check language.
 set tags+=tags                               " Enable tags.
 set nu
 set clipboard=unnamed                        " Fix clipboard for macOS sierra using reattach-for-namespace
+set spell spelllang=en_us 
 " ------------------------------------------------------------------------------
-" Vundle
+" Plug
 " ------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
 " Language / syntax support.
 Plug 'elixir-lang/vim-elixir'
-Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rake'
-Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-ragtag'
 Plug 'dsawardekar/portkey' | Plug 'dsawardekar/ember.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'kchmck/vim-coffee-script'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'groenewege/vim-less'
-Plug 'elzr/vim-json'
-Plug 'noprompt/vim-yardoc'
-Plug 'othree/html5.vim'
-Plug 'othree/yajs.vim'
 Plug 'ap/vim-css-color'
-Plug 'ynkdir/vim-vimlparser' | Plug 'syngan/vim-vimlint'
 Plug 'mutewinter/tomdoc.vim'
 Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-hashicorp-tools'
-Plug 'apeschel/vim-syntax-syslog-ng'
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'klen/python-mode'
+Plug 'lmeijvogel/vim-yaml-helper'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'aldhsu/vim-test'
+Plug 'janko-m/vim-test'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
 Plug 'henrik/rename.vim'
-" Plug 'scrooloose/syntastic'
-Plug 'benekastah/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ciaranm/detectindent'
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'dyng/auto_mkdir'
@@ -124,9 +114,9 @@ nmap <Leader>n :nohlsearch<CR>
 
 " Save and run tests in Ruby
 
-nmap <silent> <leader>R :wa<CR> :TestNearest<CR>
-nmap <silent> <leader>r :wa<CR> :TestFile<CR>
-nmap <silent> <leader>l :wa<CR> :TestLast<CR>
+" nmap <silent> <leader>R :wa<CR> :call RunNearestTestWithGUIChrome()<CR>
+" nmap <silent> <leader>r :wa<CR> :TestFile<CR>
+" nmap <silent> <leader>l :wa<CR> :TestLast<CR>
 " nmap <silent> <leader>a :TestSuite<CR>
 " nmap <silent> <leader>g :TestVisit<CR>
 
@@ -158,12 +148,15 @@ nmap <Leader>j :%!python -m json.tool <CR>
 " Yank filename into buffer
 nmap <Leader>n :let @" = expand("%")<CR>
 
+" YAML Helper
+nmap <Leader>y :YamlGoToKey 
+nmap <Leader>Y :YamlGetFullPath<CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" let g:ctrlp_map = '<Leader>t'
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " ------------------------------------------------------------------------------
 " YouCompleteMe
@@ -247,10 +240,11 @@ autocmd InsertEnter,InsertLeave * set cul!
 " ------------------------------------------------------------------------------
 " User Interface
 " ------------------------------------------------------------------------------
-colorscheme base16-tomorrow
+set termguicolors
+colorscheme base16-tomorrow-night
+set background=dark
 let &t_8f="\e[38;2;%ld;%ld;%ldm"
 let &t_8b="\e[48;2;%ld;%ld;%ldm"
-set background=dark
 
 if has('gui_running')
     set guioptions-=m             " Disable menu bar.
@@ -323,7 +317,7 @@ nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 " Create Spec File
 function! CreateSpecFile()
     let fileExt = expand("%:e")
-    if fileExt == "rb"
+    if fileExt == "rb" || fileExt =="erb"
         vsplit
         let filePath = expand("%")
         let fileName = expand("%:t:r")
