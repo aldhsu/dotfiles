@@ -38,12 +38,12 @@ set spell spelllang=en_us
 call plug#begin('~/.vim/plugged')
 
 " Language / syntax support.
-Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-endwise'
 Plug 'dsawardekar/portkey' | Plug 'dsawardekar/ember.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -57,6 +57,8 @@ Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'alvan/vim-closetag'
+Plug 'shime/vim-livedown'
 Plug 'uplus/deoplete-solargraph'
 
 Plug 'junegunn/fzf'
@@ -97,8 +99,8 @@ nnoremap <leader>a :Ag<space>
 " Rename buffer
 nnoremap <Leader><Leader>r :Rename!<space>
 
-" Project Notes
-map <Leader>pn :sp ~/Dropbox/Notes.md<CR>
+" Copy current file path
+nnoremap <Leader>cp :let @" = expand("%")
 
 " Fugitive Status
 map <Leader>s :Gstatus<CR>
@@ -154,7 +156,6 @@ nmap <Leader>y :YamlGoToKey
 nmap <Leader>Y :YamlGetFullPath<CR>
 
 " ------------------------------------------------------------------------------
-" CtrlP
 " Deoplete
 " ------------------------------------------------------------------------------
 
@@ -185,6 +186,11 @@ let g:rails_ctags_arguments = ['--languages=-javascript', '--fields=+l', '--excl
 " vim-go
 " ------------------------------------------------------------------------------
 let g:go_fmt_command = "goimports"
+
+" ------------------------------------------------------------------------------
+" vim-closetag
+" ------------------------------------------------------------------------------
+let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
 
 " ------------------------------------------------------------------------------
 " Search and Replace
@@ -317,7 +323,7 @@ function! CreateSpecFile()
 
         "check if spec already exists
         if empty(glob(specPath))
-            execute "normal! irequire \"rails_helper\"\<cr>\<cr>RSpec.describe "
+            execute "normal! irequire RSpec.describe "
             " regex could be simplified with matching word start
             let className = substitute(substitute(fileName, "_\\(\\w\\)", "\\U\\1", "g"), "\\w", "\\U\\0", "")
             let stringWriteClass = "normal i " . className . " do\<cr>end\<esc>"
