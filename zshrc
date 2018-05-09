@@ -91,12 +91,12 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # unalias gb
 
+alias notify='terminal-notifier -message "Task Finished" -title "Terminal"'
 alias a='tmux attach -t'
 alias g='git'
 alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 alias t='tmux'
-alias z='zeus'
 alias s='spring'
 alias be='bundle exec'
 alias psql.server='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
@@ -120,3 +120,8 @@ source /Users/allen.hsu/.iterm2_shell_integration.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+rununtilfail() {
+    count=0
+    while eval $1; do (( count++ )); done; notify; echo $count
+}
