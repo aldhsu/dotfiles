@@ -57,6 +57,7 @@ Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'uplus/deoplete-solargraph'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -69,7 +70,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ciaranm/detectindent'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dyng/auto_mkdir'
 Plug 'rizzatti/dash.vim'
 " Themes
@@ -154,22 +155,11 @@ nmap <Leader>Y :YamlGetFullPath<CR>
 
 " ------------------------------------------------------------------------------
 " CtrlP
+" Deoplete
 " ------------------------------------------------------------------------------
-" let g:ctrlp_map = '<Leader>t'
-" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-" ------------------------------------------------------------------------------
-" YouCompleteMe
-" ------------------------------------------------------------------------------
-" Use tags files.
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-" Use identifiers from syntax files.
-let g:ycm_seed_identifiers_with_syntax = 1
-
-" Use strings for completion too.
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " ------------------------------------------------------------------------------
 " Airline
 " ------------------------------------------------------------------------------
