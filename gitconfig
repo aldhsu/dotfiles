@@ -9,9 +9,6 @@
   ignored = "!git ls-files --others -i --exclude-standard --directory"
   pushsub = submodule foreach "git push origin master"
   pullsub = submodule foreach "git pull origin master"
-[user]
-  name = Allen Hsu
-  email = allen.hsu@kinesis.org
 [core]
   legacyheaders = false
 	excludesfile = /Users/allen.hsu/.gitexclude
