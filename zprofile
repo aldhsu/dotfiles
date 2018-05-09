@@ -97,3 +97,5 @@ if [ $ITERM_SESSION_ID ]; then
 fi
 
 zstyle ':completion:*:*:git:*' user-commands fixup:'Create a fixup commit'
+
+export PATH="$HOME/.cargo/bin:$PATH"
