@@ -32,6 +32,8 @@ set tags+=tags                               " Enable tags.
 set nu
 set clipboard=unnamed                        " Fix clipboard for macOS sierra using reattach-for-namespace
 set spell spelllang=en_us 
+set lazyredraw                               " Skip redrawing while in a macro for faster completion
+set inccommand=nosplit                       " NeoVim only, shows realtime matches eg. :s/()/()
 " ------------------------------------------------------------------------------
 " Plug
 " ------------------------------------------------------------------------------
