@@ -1,10 +1,10 @@
 " YouCompleteMe
 
-let g:ycm_collect_identifiers_from_tags_files = 1            " Use tags files.
-let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers from syntax files.
-let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
-let g:ycm_complete_in_comments = 1                           " Also complete within comments
-let g:ycm_python_binary_path = '/usr/local/bin/python'
+" let g:ycm_collect_identifiers_from_tags_files = 1            " Use tags files.
+" let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers from syntax files.
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
+" let g:ycm_complete_in_comments = 1                           " Also complete within comments
+" let g:ycm_python_binary_path = '/usr/local/bin/python'
 
 " " ag.vim
 let g:ag_prg="ag --column --smart-case --ignore \"*.log\""   " Ignore log files.
@@ -61,3 +61,8 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 
 " vim-test
 let test#strategy = 'neovim'
+
+" netrw
+let g:netrw_localrmdir='rm -rf'
+
+" vim-fugitive
