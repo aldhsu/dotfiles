@@ -59,5 +59,6 @@ if !exists(':Rename!')
   nnoremap <Leader><Leader>r :Rename!<space>
 end
 
+" FZF show uncommitted git listed files
 nnoremap <leader>t :Files<CR>
-
+nmap <Leader>T :GitFiles?<CR>
