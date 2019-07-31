@@ -57,6 +57,7 @@ set nobackup                                 " Disable backups.
 set nowritebackup
 set noswapfile
 set undolevels=1000                          " Large undo levels.
+au FocusLost * silent! wa
 
 " Persistent Undo
 if has('persistent_undo')
