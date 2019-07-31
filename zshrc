@@ -31,16 +31,19 @@ fi
 # iterm
 source /Users/allen.hsu/.iterm2_shell_integration.zsh
 
-#rails 
-alias reset_db='bundle check || bundle && brew services stop postgresql && brew services start postgresql && rake db:reset db:production:import && terminal-notifier -message "Database updated" -title "Terminal"'
+#rails
 alias be='bundle exec'
 alias rdb='rake db:migrate && rake db:seed; bin/pspec setup'
+alias reset_db='bundle check || bundle && brew services stop postgresql && brew services start postgresql && rake db:reset db:production:import && terminal-notifier -message "Database updated" -title "Terminal"'
+alias s='spring'
 
 # git
 alias g='git'
 alias gbr="git for-each-ref --sort='-committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--'"
+alias gnb='git fetch && git checkout -q origin/master && git checkout -b'
 alias gpnv='SKIP_HOOK_TESTS=1 git push'
 alias gprunelocal='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
+alias grm='git fetch && git rebase origin/master'
 alias gunwip="g reset head^"
 alias gwip="g add . && g commit --m 'WIP'"
 
@@ -51,8 +54,8 @@ alias t='tmux'
 alias tk='tmux kill-session -t'
 
 # emulation
-alias ios_emu="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 alias an_emu="cd ~/Library/Android/sdk/tools && ANDROID_SDK_ROOT=~/Library/Android/sdk emulator @Pixel28.1"
+alias ios_emu="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 
 # postgres
 alias kpg='rm /usr/local/var/postgres/postmaster.pid'
@@ -72,7 +75,6 @@ alias docker_drop_all="docker stop $(docker ps -aq) && docker rm $(docker ps -aq
 
 # shell
 alias notify='terminal-notifier -message "Task Finished" -title "Terminal"'
-alias s='spring'
 killport() {  kill $( lsof -i:$1 -t ) }
 rununtilfail() {
     count=0
