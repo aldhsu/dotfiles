@@ -16,24 +16,23 @@
   quotepath = false
   autocrlf = false
   safecrlf = true
-  editor = vim
+  editor = nvim
 [color]
   ui = auto
 [branch]
   autosetupmerge = true
 [advice]
   pushNonFastForward = false
-  statusHints = false
+    statusHints = false
 [push]
-	default = current
+    default = current
 [rerere]
   enabled = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[difftool "vimdiff"]
+	cmd = vimdiff
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
@@ -45,3 +44,11 @@
 	autosquash = true
 [commit]
 	template = /Users/allen.hsu/.stCommitMsg
+[status]
+	showUntrackedFiles = all
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
