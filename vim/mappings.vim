@@ -62,3 +62,6 @@ end
 " FZF show uncommitted git listed files
 nnoremap <leader>t :Files<CR>
 nmap <Leader>T :GitFiles?<CR>
+
+" Undotree
+nmap <Leader>U :UndotreeToggle<CR>

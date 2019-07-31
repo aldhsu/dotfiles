@@ -75,6 +75,8 @@ Plug 'ciaranm/detectindent'
 
 Plug 'dyng/auto_mkdir'
 Plug 'rizzatti/dash.vim'
+
+Plug 'mbbill/undotree'
 " Themes
 Plug 'chriskempson/base16-vim'
 
