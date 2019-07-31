@@ -46,7 +46,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-endwise'
-Plug 'dsawardekar/portkey' | Plug 'dsawardekar/ember.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
@@ -58,10 +57,10 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'alvan/vim-closetag'
 Plug 'shime/vim-livedown'
-Plug 'uplus/deoplete-solargraph'
+Plug 'mattn/emmet-vim'
+Plug 'zxqfl/tabnine-vim'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -74,7 +73,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ciaranm/detectindent'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dyng/auto_mkdir'
 Plug 'rizzatti/dash.vim'
 " Themes
@@ -315,7 +313,7 @@ nnoremap <leader>W :call StripTrailingWhitespace()<CR>
 " Create Spec File
 function! CreateSpecFile()
     let fileExt = expand("%:e")
-    if fileExt == "rb" || fileExt =="erb"
+    if fileExt == "rb" || fileExt =="erb" || fileExt == "rake"
         vsplit
         let filePath = expand("%")
         let fileName = expand("%:t:r")
@@ -325,7 +323,7 @@ function! CreateSpecFile()
 
         "check if spec already exists
         if empty(glob(specPath))
-            execute "normal! irequire RSpec.describe "
+            execute "normal! iRSpec.describe "
             " regex could be simplified with matching word start
             let className = substitute(substitute(fileName, "_\\(\\w\\)", "\\U\\1", "g"), "\\w", "\\U\\0", "")
             let stringWriteClass = "normal i " . className . " do\<cr>end\<esc>"
