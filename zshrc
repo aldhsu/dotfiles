@@ -22,7 +22,6 @@ zplug "lukechilds/zsh-nvm"
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
 # Source base16 256 colourspace script.
 if [[ -s "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh" ]]; then
   source "$HOME/.colours/base16-shell/base16-tomorrow.dark.sh"
@@ -69,9 +68,6 @@ alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 # regex
 repl() { perl -pi -w -e "s/$1/$2/g;" * }
 replr() { perl -p -i -e "s/$1/$2/g" `grep -ril $1 *` }
-
-# docker
-alias docker_drop_all="docker stop $(docker ps -aq) && docker rm $(docker ps -aq)"
 
 # shell
 alias notify='terminal-notifier -message "Task Finished" -title "Terminal"'

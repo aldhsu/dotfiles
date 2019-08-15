@@ -1,27 +1,3 @@
-" YouCompleteMe
-
-" let g:ycm_collect_identifiers_from_tags_files = 1            " Use tags files.
-" let g:ycm_seed_identifiers_with_syntax = 1                   " Use identifiers from syntax files.
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1  " Use identifiers from comments
-" let g:ycm_complete_in_comments = 1                           " Also complete within comments
-" let g:ycm_python_binary_path = '/usr/local/bin/python'
-
-" " ag.vim
-let g:ag_prg="ag --column --smart-case --ignore \"*.log\""   " Ignore log files.
-
-" CtrlP
-
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_max_height = 10                                   " Ensure max height isn't too large (for performance)
-let g:ctrlp_reuse_window = 'startify'                         " Fix new windows opening in split from startify
-let g:ctrlp_mruf_max = 350
-let g:ctrlp_mruf_default_order = 0
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'       " Use ag
-  let g:ctrlp_use_caching = 0                                 " ag is fast enough that CtrlP doesn't need to cache
-endif
-
 " vim-rails
 
 " Set ctags command so that tags are supported by YouCompleteMe
@@ -64,5 +40,3 @@ let test#strategy = 'neovim'
 
 " netrw
 let g:netrw_localrmdir='rm -rf'
-
-" vim-fugitive
