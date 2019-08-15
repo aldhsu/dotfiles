@@ -30,6 +30,10 @@ fi
 # iterm
 source /Users/allen.hsu/.iterm2_shell_integration.zsh
 
+# linux tools
+alias ls="lsd"
+alias cat="bat"
+
 #rails
 alias be='bundle exec'
 alias rdb='rake db:migrate && rake db:seed; bin/pspec setup'
@@ -51,6 +55,7 @@ alias a='tmux attach -t'
 alias mux='tmuxinator'
 alias t='tmux'
 alias tk='tmux kill-session -t'
+alias tks='tmux kill-server'
 
 # emulation
 alias an_emu="cd ~/Library/Android/sdk/tools && ANDROID_SDK_ROOT=~/Library/Android/sdk emulator @Pixel28.1"
@@ -95,3 +100,10 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fbr() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short) #%(committerdate)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/ #[MTWFS].*$//" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
