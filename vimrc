@@ -94,9 +94,8 @@ let mapleader = ","               " Use comma as leader.
 " Save
 map <Leader>w :wa<CR>
 
-" Ag
-let g:ag_prg="ag --column --smart-case --ignore \"*.log\""
-nnoremap <leader>a :Ag<space>
+" Rg
+nnoremap <leader>a :Rg<space>
 
 " Rename buffer
 nnoremap <Leader><Leader>r :Rename!<space>

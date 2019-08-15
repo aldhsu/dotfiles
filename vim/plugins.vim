@@ -48,7 +48,7 @@ let g:airline#extensions#hunks#enabled = 0
 let g:airline_theme='base16'
 
 " fzf
-let $FZF_DEFAULT_COMMAND='ag -g ""'                         " Use ag to obey ignore files
+let $FZF_DEFAULT_COMMAND='rg --files'
 
 " This is the default extra key bindings
 let g:fzf_action = {

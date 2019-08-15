@@ -35,9 +35,9 @@ if has('nvim')
   tnoremap <Leader>e <C-\><C-n>
 end
 
-if !exists(':Ag')
-  nnoremap <leader>f :Ag<space>
-  nnoremap <silent> <leader>as :AgFromSearch<CR>
+if !exists(':Rg')
+  nnoremap <leader>f :Rg<space>
+  nnoremap <silent> <leader>as :RgFromSearch<CR>
 end
 
 function! RunNearestTestWithGUIChrome()
