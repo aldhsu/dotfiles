@@ -31,8 +31,9 @@ fi
 source /Users/allen.hsu/.iterm2_shell_integration.zsh
 
 # linux tools
-alias ls="lsd"
+alias ls="lsd -l --group-dirs=first"
 alias cat="bat"
+alias grep="rg"
 
 #rails
 alias be='bundle exec'
