@@ -65,3 +65,7 @@ nmap <Leader>T :GitFiles?<CR>
 
 " Undotree
 nmap <Leader>U :UndotreeToggle<CR>
+
+" Navigation
+nnoremap <C-J> <C-D>
+nnoremap <C-K> <C-U>
