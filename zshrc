@@ -108,3 +108,7 @@ fbr() {
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/ #[MTWFS].*$//" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+how() {
+  open -a "Google Chrome" https://www.google.com/search?q=$1
+}
