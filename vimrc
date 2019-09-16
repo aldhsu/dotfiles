@@ -62,8 +62,8 @@ Plug 'shime/vim-livedown'
 Plug 'mattn/emmet-vim'
 Plug 'zxqfl/tabnine-vim'
 
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
 Plug 'janko-m/vim-test'
 Plug 'godlygeek/tabular'
 Plug 'tomtom/tcomment_vim'
