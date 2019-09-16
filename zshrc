@@ -47,7 +47,7 @@ alias gbr="git for-each-ref --sort='-committerdate' --format='%(refname)%09%(com
 alias gnb='git fetch && git checkout -q origin/master && git checkout -b'
 alias gpnv='SKIP_HOOK_TESTS=1 git push'
 alias gprunelocal='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
-alias grm='git fetch && git rebase origin/master'
+alias grm='SKIP_HOOKUP=true git co master && gfr && g co - && g rebase master'
 alias gunwip="g reset head^"
 alias gwip="g add . && g commit --m 'WIP'"
 
