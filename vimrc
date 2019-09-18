@@ -34,6 +34,7 @@ set clipboard=unnamed                        " Fix clipboard for macOS sierra us
 set spell spelllang=en_us 
 set lazyredraw                               " Skip redrawing while in a macro for faster completion
 set inccommand=nosplit                       " NeoVim only, shows realtime matches eg. :s/()/()
+set shell=zsh
 " ------------------------------------------------------------------------------
 " Plug
 " ------------------------------------------------------------------------------
