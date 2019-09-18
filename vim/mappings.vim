@@ -69,3 +69,6 @@ nmap <Leader>U :UndotreeToggle<CR>
 " Navigation
 nnoremap <C-J> <C-D>
 nnoremap <C-K> <C-U>
+
+" Google search
+nnoremap <leader>h :!how<space>
