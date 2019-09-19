@@ -10,11 +10,6 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-# linux tools
-alias ls="lsd -l --group-dirs=first"
-alias cat="bat"
-alias grep="rg"
-
 #rails
 alias be='bundle exec'
 alias rdb='rake db:migrate && rake db:seed; bin/pspec setup'
@@ -23,7 +18,6 @@ alias s='spring'
 
 # git
 alias g='git'
-alias gbr="git for-each-ref --sort='-committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--'"
 alias gnb='git fetch && git checkout -q origin/master && git checkout -b'
 alias gpnv='SKIP_HOOK_TESTS=1 git push'
 alias gprunelocal='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
@@ -87,8 +81,4 @@ fbr() {
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/ #[MTWFS].*$//" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-how() {
-  open -a "Google Chrome" "https://www.google.com/search?q=$1"
 }
