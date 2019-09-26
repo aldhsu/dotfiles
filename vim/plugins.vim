@@ -28,3 +28,6 @@ let test#strategy = 'neovim'
 
 " netrw
 let g:netrw_localrmdir='rm -rf'
+
+" skim
+let g:SKIM_DEFAULT_OPTIONS="--tiebreak=score,length,index"
