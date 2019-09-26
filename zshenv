@@ -82,3 +82,11 @@ fbr() {
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/ #[MTWFS].*$//" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+
+# Chrome
+how() {
+  open -a "Google Chrome" "https://www.google.com/search?q=$1"
+}
+
+# skim
+export SKIM_DEFAULT_OPTIONS="--tiebreak=score,length"

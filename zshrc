@@ -34,8 +34,3 @@ source /Users/allen.hsu/.iterm2_shell_integration.zsh
 alias ls="lsd -l --group-dirs=first"
 alias cat="bat"
 alias grep="rg"
-
-# Chrome
-how() {
-  open -a "Google Chrome" "https://www.google.com/search?q=$1"
-}
