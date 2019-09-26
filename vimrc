@@ -143,6 +143,7 @@ nmap <Leader>E :Vex <CR>
 
 " Explorer display
 let g:netrw_liststyle=3
+let g:netrw_list_hide= '.DS_Store'
 
 " Refresh all open windows
 nmap <Leader>% :windo e <CR>
