@@ -12,7 +12,7 @@ fi
 
 #rails
 alias be='bundle exec'
-alias rdb='rake db:migrate && rake db:seed; bin/pspec setup'
+alias rdb='rake db:migrate && rake data:validity && rake db:seed; bin/pspec setup'
 alias reset_db='bundle check || bundle && brew services stop postgresql && brew services start postgresql && rake db:reset db:production:import && terminal-notifier -message "Database updated" -title "Terminal"'
 alias s='spring'
 
