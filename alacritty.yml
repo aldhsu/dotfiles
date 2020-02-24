@@ -115,34 +115,34 @@ font:
     #style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: *font
+    family: *font
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: *font
+    family: *font
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
 
   # Bold italic font face
-  #bold_italic:
+  bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: *font
+    family: *font
 
     # The `style` can be specified to pick a specific face.
     #style: Bold Italic
@@ -553,7 +553,7 @@ key_bindings:
   #- { key: K,      mods: Command,         chars: "\x0c"            }
   #- { key: V,      mods: Command,         action: Paste            }
   #- { key: C,      mods: Command,         action: Copy             }
-  #- { key: H,      mods: Command,         action: Hide             }
+  - { key: 7,      mods: Command|Shift|Alt,         action: Hide }
   #- { key: M,      mods: Command,         action: Minimize         }
   #- { key: Q,      mods: Command,         action: Quit             }
   #- { key: W,      mods: Command,         action: Quit             }
