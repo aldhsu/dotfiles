@@ -89,4 +89,4 @@ how() {
 }
 
 # skim
-export SKIM_DEFAULT_OPTIONS="--tiebreak=score,length"
+export SKIM_DEFAULT_OPTIONS="--tiebreak=score,length,index"
