@@ -38,7 +38,7 @@
 	smudge = git-lfs smudge %f
 	required = true
 [user]
-	email = 0allen.hsu@gmail.com
+	email = allen.hsu@fivegoodfriends.com.au
 	name = Allen Hsu
 [rebase]
 	autosquash = true
