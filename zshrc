@@ -5,15 +5,16 @@
 #   Allen Hsu modified version of
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-# zmodload zsh/zprof
+# Uncomment to profile
+# zmodload zsh/zprof 
 # Source ZPlug
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 #
-# # OpenSSL
-export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
-export OPENSSL_LIB_DIR=`brew --prefix openssl`/lib
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+# # OpenSSL : brew wasn't linking openssl properly having doing this leads to +2s to the terminal load time
+# export OPENSSL_INCLUDE_DIR=`brew --prefix openssl`/include
+# export OPENSSL_LIB_DIR=`brew --prefix openssl`/lib
+# export PATH="/usr/local/opt/openssl/bin:$PATH"
 #
 # # Plugins
 #
@@ -38,3 +39,4 @@ source /Users/allen.hsu/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 . /usr/local/opt/asdf/asdf.sh
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+# zprof
