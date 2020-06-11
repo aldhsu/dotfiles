@@ -58,11 +58,13 @@ Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'w0rp/ale'
+Plug 'junegunn/vim-emoji'
 Plug 'sheerun/vim-polyglot'
 Plug 'alvan/vim-closetag'
 Plug 'shime/vim-livedown'
 Plug 'mattn/emmet-vim'
-Plug 'zxqfl/tabnine-vim'
+Plug 'zxqfl/tabnine-vim', {'for': ['ruby']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['rust']}
 
 Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'lotabout/skim.vim'
@@ -74,6 +76,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ciaranm/detectindent'
+Plug 'bkad/CamelCaseMotion'
 
 Plug 'dyng/auto_mkdir'
 Plug 'rizzatti/dash.vim'
