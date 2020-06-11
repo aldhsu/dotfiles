@@ -35,6 +35,7 @@ set spell spelllang=en_us
 set lazyredraw                               " Skip redrawing while in a macro for faster completion
 set inccommand=nosplit                       " NeoVim only, shows realtime matches eg. :s/()/()
 set shell=zsh
+set iskeyword-=_                            " Underscore now acts as word boundary
 " ------------------------------------------------------------------------------
 " Plug
 " ------------------------------------------------------------------------------
