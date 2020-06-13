@@ -2,21 +2,19 @@
 
 These are my dotfiles.
 
-## Prerequisites
+## Recreating the environment
 
-The following assumptions are made:
-
-- [iTerm2](http://www.iterm2.com/) is used instead of Terminal.app
-- [homebrew](http://brew.sh/) is used
-- Latest version of tmux is installed from homebrew
-- Latest version of zsh is installed from homebrew
-- Latest version of vim is installed from homebrew
-- User shell is changed to the homebrew version `/usr/local/bin/zsh`
+- brew
+- tmux and attach-to-usernamespace
+- zsh
+- alacritty
+- nvim
+- powerline fonts https://github.com/powerline/fonts/blob/master/Meslo%20Slashed/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf
+- rustup and cargo
 
 ## Base16 Colours
 
 I use the [base16](http://chriskempson.github.io/base16/) theme tomorrow dark.
-Make sure to load the iTerm2 colour pallete from `~/.colours/base16-iterm2`.
 
 If you wish to use a different colour, simply change the `colourscheme` in `~/.vimrc` and
 the colourspace script loaded in `~/.zshrc.`
@@ -29,22 +27,3 @@ the colourspace script loaded in `~/.zshrc.`
 2. Run `ruby go.rb`
 3. Import the base-16 iTerm2 colour scheme into iTerm2.
 4. Launch vim, ignoring any errors, and run `:PlugInstall`.
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2015 Christopher Chow
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
-persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
-Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
