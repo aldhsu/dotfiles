@@ -39,7 +39,7 @@ set iskeyword-=_                            " Underscore now acts as word bounda
 " ------------------------------------------------------------------------------
 " Plug
 " ------------------------------------------------------------------------------
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Language / syntax support.
 Plug 'tpope/vim-rails'
@@ -87,10 +87,10 @@ Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
-source ~/.vim/platform.vim
-source ~/.vim/core.vim
-source ~/.vim/plugins.vim
-source ~/.vim/mappings.vim
+source ~/.config/nvim/platform.vim
+source ~/.config/nvim/core.vim
+source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/mappings.vim
 " ------------------------------------------------------------------------------
 " Binds
 " ------------------------------------------------------------------------------

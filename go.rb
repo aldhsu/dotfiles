@@ -15,5 +15,6 @@ Dir.chdir File.dirname(__FILE__) do
     end
   end
 
+  %x[ln -s config ~/.config]
   %x[curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim]
 end
