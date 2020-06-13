@@ -7,3 +7,5 @@ ssh/*
 lftp/bookmarks
 lftp/log
 colours
+config/nvim/plugged/*
+config/nvim/autoload/*
